@@ -13,6 +13,7 @@
 - (IBAction)firstExampleButtonPressed;
 - (IBAction)secondExampleButtonPressed;
 - (IBAction)thirdExampleButtonPressed;
+- (IBAction)fifthExampleButtonPressed;
 - (void)pushViewController:(UIViewController *)vc;
 
 @end

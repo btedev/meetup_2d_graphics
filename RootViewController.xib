@@ -114,7 +114,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="346250667"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">5) I Am Vampyrabbit</string>
+						<string key="IBUINormalTitle">5) Core Animation</string>
 						<reference key="IBUIHighlightedTitleColor" ref="455735077"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -133,7 +133,7 @@
 						<int key="IBUIContentVerticalAlignment">0</int>
 						<reference key="IBUIFont" ref="346250667"/>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">4) CoreGraphics</string>
+						<string key="IBUINormalTitle">4) Core Graphics</string>
 						<reference key="IBUIHighlightedTitleColor" ref="455735077"/>
 						<object class="NSColor" key="IBUINormalTitleColor">
 							<int key="NSColorSpace">1</int>
@@ -188,6 +188,15 @@
 						<int key="IBEventType">7</int>
 					</object>
 					<int key="connectionID">29</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBCocoaTouchEventConnection" key="connection">
+						<string key="label">fifthExampleButtonPressed</string>
+						<reference key="source" ref="805015678"/>
+						<reference key="destination" ref="372490531"/>
+						<int key="IBEventType">7</int>
+					</object>
+					<int key="connectionID">30</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -299,7 +308,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">29</int>
+			<int key="maxID">30</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -311,12 +320,14 @@
 						<bool key="EncodedWithXMLCoder">YES</bool>
 						<object class="NSMutableArray" key="dict.sortedKeys">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>fifthExampleButtonPressed</string>
 							<string>firstExampleButtonPressed</string>
 							<string>secondExampleButtonPressed</string>
 							<string>thirdExampleButtonPressed</string>
 						</object>
 						<object class="NSMutableArray" key="dict.values">
 							<bool key="EncodedWithXMLCoder">YES</bool>
+							<string>id</string>
 							<string>id</string>
 							<string>id</string>
 							<string>id</string>

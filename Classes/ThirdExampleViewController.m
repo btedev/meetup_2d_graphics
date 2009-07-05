@@ -88,22 +88,28 @@
 	if (!rabbitView) return;
 	
 	if (jellyfishView == nil) {		
-		jellyfishView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 300.0f)];
+		jellyfishView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320.0f, 320.0f)];
 		jellyfishView.alpha = 0.6f;
 		[self.view insertSubview:jellyfishView belowSubview:rabbitView];
+		
+		//make alpha slider visible
+		alphaSlider.value = jellyfishView.alpha;
+		[alphaSlider setHidden:NO];
 	}
 			
 	//add jellyfish image
 	UIImage *jellyfishImage = [UIImage imageNamed:@"jellyfish.png"];
-	int x = random() % 320 - (jellyfishImage.size.width / 2);
-	int y = random() % 200;
+	int x = random() % 320;
+	int y = random() % 320;
 	UIImageView *jellyfishImageView = [[UIImageView alloc] initWithImage:jellyfishImage];
-	[jellyfishImageView setFrame:CGRectMake(x, y, jellyfishImage.size.width, jellyfishImage.size.height)];
+	[jellyfishImageView setCenter:CGPointMake(x,y)];
 	[jellyfishView addSubview:jellyfishImageView];
 }
 
-- (void)adjustJellyfishAlpha {
-	
+//change alpha transparency of jellyfish view based on slider value
+- (void)jellyfishAlphaSliderDidChange {
+	float val = alphaSlider.value;
+	jellyfishView.alpha = val;
 }
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -125,7 +131,6 @@
 
 
 - (void)dealloc {
-	[jellyfishView release];
     [super dealloc];
 }
 

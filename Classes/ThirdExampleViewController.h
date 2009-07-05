@@ -12,12 +12,15 @@
 @interface ThirdExampleViewController : UIViewController {
 	IBOutlet UISegmentedControl *segmentCtrl;
 	IBOutlet UILabel *positionLabel;
+	IBOutlet UISlider *alphaSlider;
+	
 	UIImageView *rabbitView;
 	UIImageView *snorkelView;	
 	UIView *jellyfishView;
 }
 
 - (IBAction)segmentCtrlPressed;
+- (IBAction)jellyfishAlphaSliderDidChange;
 
 - (void)drawRabbit;
 - (void)drawBackground;
@@ -25,6 +28,5 @@
 - (void)adjustSnorkel;
 - (void)updateSnorkelPositionLabel;
 - (void)addJellyfish;
-- (void)adjustJellyfishAlpha;
 
 @end

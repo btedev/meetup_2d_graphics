@@ -15,6 +15,8 @@
 		2899E5600DE3E45000AC0155 /* RootViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 2899E55F0DE3E45000AC0155 /* RootViewController.xib */; };
 		28AD73600D9D9599002E5188 /* MainWindow.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28AD735F0D9D9599002E5188 /* MainWindow.xib */; };
 		28C286E10D94DF7D0034E888 /* RootViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28C286E00D94DF7D0034E888 /* RootViewController.m */; };
+		4C6D934F10011D7B00A08B7F /* FifthExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C6D934E10011D7B00A08B7F /* FifthExampleViewController.m */; };
+		4C6D935110011D9400A08B7F /* FifthExampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C6D935010011D9400A08B7F /* FifthExampleView.xib */; };
 		4C7932B90FFC641C00243674 /* field2.png in Resources */ = {isa = PBXBuildFile; fileRef = 4C7932B80FFC641C00243674 /* field2.png */; };
 		4C7932D40FFD811200243674 /* FirstExampleViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 4C7932D30FFD811200243674 /* FirstExampleViewController.m */; };
 		4C7932D60FFD812100243674 /* FirstExampleView.xib in Resources */ = {isa = PBXBuildFile; fileRef = 4C7932D50FFD812100243674 /* FirstExampleView.xib */; };
@@ -45,6 +47,9 @@
 		28C286DF0D94DF7D0034E888 /* RootViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RootViewController.h; sourceTree = "<group>"; };
 		28C286E00D94DF7D0034E888 /* RootViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RootViewController.m; sourceTree = "<group>"; };
 		29B97316FDCFA39411CA2CEA /* main.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		4C6D934D10011D7B00A08B7F /* FifthExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FifthExampleViewController.h; sourceTree = "<group>"; };
+		4C6D934E10011D7B00A08B7F /* FifthExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FifthExampleViewController.m; sourceTree = "<group>"; };
+		4C6D935010011D9400A08B7F /* FifthExampleView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FifthExampleView.xib; sourceTree = "<group>"; };
 		4C7932B80FFC641C00243674 /* field2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = field2.png; path = ../../../tmp/field2.png; sourceTree = SOURCE_ROOT; };
 		4C7932D20FFD811200243674 /* FirstExampleViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FirstExampleViewController.h; sourceTree = "<group>"; };
 		4C7932D30FFD811200243674 /* FirstExampleViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FirstExampleViewController.m; sourceTree = "<group>"; };
@@ -93,6 +98,8 @@
 				4C79333C0FFDA5EF00243674 /* SecondExampleViewController.m */,
 				4C7933420FFDACC900243674 /* ThirdExampleViewController.h */,
 				4C7933430FFDACC900243674 /* ThirdExampleViewController.m */,
+				4C6D934D10011D7B00A08B7F /* FifthExampleViewController.h */,
+				4C6D934E10011D7B00A08B7F /* FifthExampleViewController.m */,
 			);
 			path = Classes;
 			sourceTree = "<group>";
@@ -136,6 +143,7 @@
 				4C7932D50FFD812100243674 /* FirstExampleView.xib */,
 				4C7933390FFDA5D600243674 /* SecondExampleView.xib */,
 				4C7933450FFDADEE00243674 /* ThirdExampleView.xib */,
+				4C6D935010011D9400A08B7F /* FifthExampleView.xib */,
 			);
 			name = Resources;
 			sourceTree = "<group>";
@@ -229,6 +237,7 @@
 				4C7934460FFFD73F00243674 /* jellyfish.png in Resources */,
 				4C7934470FFFD73F00243674 /* bat_up.png in Resources */,
 				4C7934480FFFD73F00243674 /* bat_down.png in Resources */,
+				4C6D935110011D9400A08B7F /* FifthExampleView.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -245,6 +254,7 @@
 				4C7932D40FFD811200243674 /* FirstExampleViewController.m in Sources */,
 				4C79333D0FFDA5EF00243674 /* SecondExampleViewController.m in Sources */,
 				4C7933440FFDACC900243674 /* ThirdExampleViewController.m in Sources */,
+				4C6D934F10011D7B00A08B7F /* FifthExampleViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
