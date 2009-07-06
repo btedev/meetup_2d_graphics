@@ -20,7 +20,8 @@
 
 //Draw the time using Core Graphics over a square
 //colored green for even numbers and blue for odd numbers
-//of ms since 1970.
+//of ms since 1970.  Note that we mix CG and UIKit methods.
+//That's possible because UIKit is based on CG.
 - (void)drawRect:(CGRect)rect {
 	[super drawRect:rect];
 	
@@ -35,12 +36,10 @@
 	NSDate *now = [[NSDate alloc] init];
 	int interval = now.timeIntervalSince1970;
 	if (interval % 2) {
-		CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 1.0);
+		CGContextSetRGBFillColor(context, 0.0, 1.0, 0.0, 1.0);  //RGBA
 	} else {
 		CGContextSetRGBFillColor(context, 0.0, 0.0, 1.0, 1.0);
 	}
-	
-	//fill the rectangle
 	CGContextFillRect(context, clockRect);
 	
 	//create the time string

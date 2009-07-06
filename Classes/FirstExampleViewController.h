@@ -18,4 +18,6 @@
 - (IBAction)pickerButtonPressed;
 - (IBAction)loadFromWebPressed;
 
+- (void)displayPickedImage:(UIImage *)image;
+
 @end

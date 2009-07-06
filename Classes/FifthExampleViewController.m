@@ -33,7 +33,7 @@
     [super viewDidLoad];
 	
 	UIImageView *background = [[UIImageView alloc] initWithFrame:self.view.frame];  
-	background.image = [UIImage imageNamed:@"fantasy_landscape.jpg"];
+	background.image = [UIImage imageNamed:@"churchyard.png"];
 	[self.view addSubview:background];
 	[self.view sendSubviewToBack:background];
 	
