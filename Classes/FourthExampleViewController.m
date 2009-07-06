@@ -27,8 +27,13 @@
 	
 	clockView = [[ClockView alloc] initWithFrame:CGRectMake(0, 0, 320, 480)];
 	self.view = clockView;
+		
+	[NSTimer scheduledTimerWithTimeInterval:1 target:self selector:@selector(refreshClock) userInfo:nil repeats:YES];
 }
 
+- (void)refreshClock {
+	[self.view setNeedsDisplay];
+}
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.

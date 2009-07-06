@@ -13,5 +13,6 @@
 	ClockView *clockView;
 }
 
+- (void)refreshClock;
 
 @end
