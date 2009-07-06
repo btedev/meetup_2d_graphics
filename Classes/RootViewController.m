@@ -10,6 +10,7 @@
 #import "FirstExampleViewController.h"
 #import "SecondExampleViewController.h"
 #import "ThirdExampleViewController.h"
+#import "FourthExampleViewController.h"
 #import "FifthExampleViewController.h"
 
 @implementation RootViewController
@@ -39,6 +40,12 @@
 
 - (void)thirdExampleButtonPressed {
 	ThirdExampleViewController *vc = [[ThirdExampleViewController alloc] initWithNibName:@"ThirdExampleView" bundle:nil];
+	[self pushViewController:vc];
+	[vc release];
+}
+
+- (IBAction)fourthExampleButtonPressed {
+	FourthExampleViewController *vc = [[FourthExampleViewController alloc] init];
 	[self pushViewController:vc];
 	[vc release];
 }
