@@ -8,7 +8,7 @@
 		<string key="IBDocument.HIToolboxVersion">353.00</string>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="26"/>
+			<integer value="14"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -51,7 +51,7 @@
 							<int key="NSfFlags">16</int>
 						</object>
 						<int key="IBUIButtonType">1</int>
-						<string key="IBUINormalTitle">1) Image Sources</string>
+						<string key="IBUINormalTitle">1) UIImage Sources</string>
 						<object class="NSColor" key="IBUIHighlightedTitleColor" id="455735077">
 							<int key="NSColorSpace">3</int>
 							<bytes key="NSWhite">MQA</bytes>

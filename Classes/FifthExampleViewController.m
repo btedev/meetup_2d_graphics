@@ -39,12 +39,12 @@
 	//Create Feast button
 	UIButton *feastButton = [UIButton buttonWithType:UIButtonTypeCustom];
 	[feastButton setImage:[UIImage imageNamed:@"feast_normal.png"] forState:UIControlStateNormal];
-	[feastButton setFrame:CGRectMake(30, 360, 87.5, 50)];
+	[feastButton setFrame:CGRectMake(30, 350, 87.5, 50)];
 	[feastButton addTarget:self action:@selector(feastButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:feastButton];
 	
 	//Add familiar rabbit
-	UIImageView *rabbitViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,222,269,246)];
+	UIImageView *rabbitViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,210,269,246)];
 	rabbitViewLayer.contentMode = UIViewContentModeScaleAspectFit;
 	rabbitViewLayer.image = [UIImage imageNamed:@"rabbit_cutout.png"];
 	[self.view addSubview:rabbitViewLayer];
@@ -52,7 +52,7 @@
 	
 	//Add "meanace" ImageView with fangs and rabbit red eye over the rabbit image but set alpha at 0
 	//for now.  Pressing Feast button will cause animation to set alpha to 1.0.
-	menaceViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,222,269,246)];
+	menaceViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,210,269,246)];
 	menaceViewLayer.contentMode = UIViewContentModeScaleAspectFit;
 	menaceViewLayer.image = [UIImage imageNamed:@"menace_layer.png"];
 	menaceViewLayer.alpha = 0.0;
@@ -83,7 +83,6 @@
 	
 	//peform animation approx. 1 in 5 invocations
 	if (random() % 5) return;
-	NSLog(@"bats");
 	
 	//set up pre-animation state	
 	[batImageView setHidden:NO];	
@@ -97,7 +96,7 @@
 	int x = random() % 200;
 	int y = random() % 200;
 	
-	[batImageView setFrame:CGRectMake(x, y, 276, 170)];
+	[batImageView setFrame:CGRectMake(x, y, 414, 255)];
 	[UIView setAnimationDidStopSelector:@selector(animateBatsHasFinished:finished:context:)];
 	
 	//begin animation
@@ -112,7 +111,6 @@
 
 //use animation to set alpha on "menace layer" to 1.0, then reverse
 - (void)feastButtonPressed {
-	NSLog(@"feast");
 	[UIView beginAnimations:@"feast" context:nil];
 	[UIView setAnimationDuration:3.0];
 	[UIView setAnimationBeginsFromCurrentState:YES];
@@ -126,15 +124,6 @@
 - (void)feastHasFinished:(NSString *)animationID finished:(BOOL)finished context:(void *)context { 
 	menaceViewLayer.alpha = 0.0;
 }
-
-
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
-}
-*/
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.

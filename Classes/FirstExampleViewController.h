@@ -17,7 +17,9 @@
 - (IBAction)loadFromFileButtonPressed;
 - (IBAction)pickerButtonPressed;
 - (IBAction)loadFromWebPressed;
+- (IBAction)rotateRightButtonPressed;
 
 - (void)displayPickedImage:(UIImage *)image;
+- (UIImage *)rotateImage90Right:(UIImage *)image;
 
 @end

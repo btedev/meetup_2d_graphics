@@ -21,7 +21,8 @@
 //Draw the time using Core Graphics over a square
 //colored green for even numbers and blue for odd numbers
 //of ms since 1970.  Note that we mix CG and UIKit methods.
-//That's possible because UIKit is based on CG.
+//That's possible because UIKit's graphics  are a high-level subset 
+//of CG.   
 - (void)drawRect:(CGRect)rect {
 	
 	//get the CG reference to the UIKit-created context 	

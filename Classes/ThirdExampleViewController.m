@@ -46,6 +46,7 @@
 																										//be (160.0, 240.0)
 	
 	[self.view addSubview:rabbitView];	
+	[rabbitView release];
 }
 
 - (void)drawBackground {
@@ -53,6 +54,7 @@
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
 	[self.view addSubview:imageView];	
 	[self.view sendSubviewToBack:imageView];
+	[imageView release];
 }
 
 - (void)outfitMammalForEnvironment {
@@ -60,6 +62,7 @@
 	snorkelView = [[UIImageView alloc] initWithImage:snorkel];
 	[snorkelView setFrame:CGRectMake(120.0, 245.0, snorkel.size.width, snorkel.size.height)];
 	[self.view addSubview:snorkelView];	
+	[snorkelView release];
 }
 
 //move snorkelView by altering the origin of its frame
@@ -95,6 +98,7 @@
 		//make alpha slider visible
 		alphaSlider.value = jellyfishView.alpha;
 		[alphaSlider setHidden:NO];
+		[jellyfishView release];
 	}
 			
 	//add jellyfish image
@@ -104,6 +108,7 @@
 	UIImageView *jellyfishImageView = [[UIImageView alloc] initWithImage:jellyfishImage];
 	[jellyfishImageView setCenter:CGPointMake(x,y)];
 	[jellyfishView addSubview:jellyfishImageView];
+	[jellyfishImageView release];
 }
 
 //change alpha transparency of jellyfish view based on slider value
