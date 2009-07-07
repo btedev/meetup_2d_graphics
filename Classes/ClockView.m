@@ -27,6 +27,8 @@
 	
 	//get the CG reference to the UIKit-created context 	
 	CGContextRef context = UIGraphicsGetCurrentContext();
+	
+	//make this view the target of the context
 	CGContextFillRect(context, rect);
 	
 	//create smaller rectangle for clock
@@ -52,7 +54,7 @@
 	[white set];
 	UIFont *font = [UIFont fontWithName:@"AmericanTypewriter-Bold" size:63];
 	
-	//draw the time
+	//draw the time using NSString's drawInRect method (see NSString Application Kit Additions)
 	[theTime drawInRect:clockRect withFont:font];
 			
 	[timeFormat release];

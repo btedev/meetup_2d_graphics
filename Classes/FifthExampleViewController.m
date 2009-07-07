@@ -44,7 +44,7 @@
 	[feastButton addTarget:self action:@selector(feastButtonPressed) forControlEvents:UIControlEventTouchUpInside];
 	[self.view addSubview:feastButton];
 	
-	//Add familiar rabbit
+	//Add our favorite bunny
 	UIImageView *rabbitViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,210,269,246)];
 	rabbitViewLayer.contentMode = UIViewContentModeScaleAspectFit;
 	rabbitViewLayer.image = [UIImage imageNamed:@"rabbit_cutout.png"];
@@ -60,14 +60,12 @@
 	[self.view addSubview:menaceViewLayer];
 
 	//Create a UIImageView with an array of two images that will simulate bat wings flapping
-	batImageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 75, 1, 1)]; //base image 276x170 
-	
+	batImageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 75, 1, 1)]; //base image 276x170 	
 	UIImage *bat1 = [UIImage imageNamed:@"bat_up.png"];
 	UIImage *bat2 = [UIImage imageNamed:@"bat_down.png"];
 	batImageView.animationImages = [NSArray arrayWithObjects:bat1, bat2, nil];
 	batImageView.animationDuration = 0.2;
-	[batImageView startAnimating];
-	
+	[batImageView startAnimating];	
 	[self.view addSubview:batImageView];
 	
 	//set timer for bats
@@ -78,8 +76,8 @@
 //Use Core Animation to set the size and frame of the bats which
 //will give the effect of the bats flying toward the user.
 //The wing flapping is handled by the UIImageView (see batImageView contruction
-//in viewDidLoad.  Randomizer will determine whether to show animation or not,
-//and start and end positions will be randomly selected.
+//in viewDidLoad).  Randomizer will determine whether to show animation or not,
+//and ending position will be randomly selected.
 - (void)animateBats {
 	
 	//peform animation approx. 1 in 5 invocations

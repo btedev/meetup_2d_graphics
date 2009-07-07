@@ -49,6 +49,8 @@
 	[rabbitView release];
 }
 
+//add background image and send to back of the view stack so it doesn't
+//obscure other views
 - (void)drawBackground {
 	UIImage *background = [UIImage imageNamed:@"coral.png"];
 	UIImageView *imageView = [[UIImageView alloc] initWithImage:background];
@@ -57,12 +59,15 @@
 	[imageView release];
 }
 
+//give the poor bunny a snorkel
 - (void)outfitMammalForEnvironment {
 	UIImage *snorkel = [UIImage imageNamed:@"snorkel.png"];
 	snorkelView = [[UIImageView alloc] initWithImage:snorkel];
 	[snorkelView setFrame:CGRectMake(120.0, 245.0, snorkel.size.width, snorkel.size.height)];
 	[self.view addSubview:snorkelView];	
 	[snorkelView release];
+	
+	[self updateSnorkelPositionLabel];
 }
 
 //move snorkelView by altering the origin of its frame
@@ -85,7 +90,7 @@
 }
 
 //1. create view for jellyfish images unless view exists
-//2. insert behind rabbit view so jellyfish aren't obscuring the star
+//2. insert behind rabbit view so jellyfish aren't obscuring
 //3. add image of jellyfish in random position in top half of view
 - (void)addJellyfish {	
 	if (!rabbitView) return;

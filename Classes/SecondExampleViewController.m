@@ -79,10 +79,11 @@
     return cell;
 }
 
+//since enums are really fancy-named integers, we can assign the content mode from the
+//index of the selected row
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     imageView.contentMode = indexPath.row;
 }
-
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
