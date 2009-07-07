@@ -23,7 +23,6 @@
 //of ms since 1970.  Note that we mix CG and UIKit methods.
 //That's possible because UIKit is based on CG.
 - (void)drawRect:(CGRect)rect {
-	[super drawRect:rect];
 	
 	//get the CG reference to the UIKit-created context 	
 	CGContextRef context = UIGraphicsGetCurrentContext();

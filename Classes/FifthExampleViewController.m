@@ -8,7 +8,6 @@
 
 #import "FifthExampleViewController.h"
 
-
 @implementation FifthExampleViewController
 
 /*
@@ -37,24 +36,95 @@
 	[self.view addSubview:background];
 	[self.view sendSubviewToBack:background];
 	
-	batImageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 75, 30.25, 22)]; //121 x 88 
+	//Create Feast button
+	UIButton *feastButton = [UIButton buttonWithType:UIButtonTypeCustom];
+	[feastButton setImage:[UIImage imageNamed:@"feast_normal.png"] forState:UIControlStateNormal];
+	[feastButton setFrame:CGRectMake(30, 360, 87.5, 50)];
+	[feastButton addTarget:self action:@selector(feastButtonPressed) forControlEvents:UIControlEventTouchUpInside];
+	[self.view addSubview:feastButton];
+	
+	//Add familiar rabbit
+	UIImageView *rabbitViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,222,269,246)];
+	rabbitViewLayer.contentMode = UIViewContentModeScaleAspectFit;
+	rabbitViewLayer.image = [UIImage imageNamed:@"rabbit_cutout.png"];
+	[self.view addSubview:rabbitViewLayer];
+	[rabbitViewLayer release];
+	
+	//Add "meanace" ImageView with fangs and rabbit red eye over the rabbit image but set alpha at 0
+	//for now.  Pressing Feast button will cause animation to set alpha to 1.0.
+	menaceViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,222,269,246)];
+	menaceViewLayer.contentMode = UIViewContentModeScaleAspectFit;
+	menaceViewLayer.image = [UIImage imageNamed:@"menace_layer.png"];
+	menaceViewLayer.alpha = 0.0;
+	[self.view addSubview:menaceViewLayer];
+
+	//Create a UIImageView with an array of two images that will simulate bat wings flapping
+	batImageView = [[UIImageView alloc] initWithFrame:CGRectMake(75, 75, 1, 1)]; //base image 276x170 
 	
 	UIImage *bat1 = [UIImage imageNamed:@"bat_up.png"];
 	UIImage *bat2 = [UIImage imageNamed:@"bat_down.png"];
 	batImageView.animationImages = [NSArray arrayWithObjects:bat1, bat2, nil];
 	batImageView.animationDuration = 0.2;
+	[batImageView startAnimating];
 	
 	[self.view addSubview:batImageView];
-	[batImageView startAnimating];
+	
+	//set timer for bats
+	[self animateBats];
+	[NSTimer scheduledTimerWithTimeInterval:0.5 target:self selector:@selector(animateBats) userInfo:nil repeats:YES];
 }
 
-- (void)batsButtonPressed {
-	NSLog(@"animating");
-	[UIView beginAnimations:@"MoveAndStrech" context:nil];
-	[UIView setAnimationDuration:4];
+//Use Core Animation to set the size and frame of the bats which
+//will give the effect of the bats flying toward the user.
+//The wing flapping is handled by the UIImageView (see batImageView contruction
+//in viewDidLoad.  Randomizer will determine whether to show animation or not,
+//and start and end positions will be randomly selected.
+- (void)animateBats {
+	
+	//peform animation approx. 1 in 5 invocations
+	if (random() % 5) return;
+	NSLog(@"bats");
+	
+	//set up pre-animation state	
+	[batImageView setHidden:NO];	
+		
+	//start animation transaction and set up post-animation state
+	[UIView beginAnimations:@"batty" context:nil];	
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDuration:1.5];
 	[UIView setAnimationBeginsFromCurrentState:YES];
-	[batImageView setFrame:CGRectMake(75, 75, 121, 88)];
+	
+	int x = random() % 200;
+	int y = random() % 200;
+	
+	[batImageView setFrame:CGRectMake(x, y, 276, 170)];
+	[UIView setAnimationDidStopSelector:@selector(animateBatsHasFinished:finished:context:)];
+	
+	//begin animation
 	[UIView commitAnimations];
+}
+
+//hide bat view after animation and reset frame to nearly invisible
+- (void)animateBatsHasFinished:(NSString *)animationID finished:(BOOL)finished context:(void *)context {
+	[batImageView setHidden:YES];
+	[batImageView setFrame:CGRectMake(75, 75, 1, 1)];	
+}
+
+//use animation to set alpha on "menace layer" to 1.0, then reverse
+- (void)feastButtonPressed {
+	NSLog(@"feast");
+	[UIView beginAnimations:@"feast" context:nil];
+	[UIView setAnimationDuration:3.0];
+	[UIView setAnimationBeginsFromCurrentState:YES];
+	[UIView setAnimationRepeatAutoreverses:YES];
+	[UIView setAnimationDelegate:self];
+	[UIView setAnimationDidStopSelector:@selector(feastHasFinished:finished:context:)];
+	menaceViewLayer.alpha = 1.0;
+	[UIView commitAnimations];
+}
+
+- (void)feastHasFinished:(NSString *)animationID finished:(BOOL)finished context:(void *)context { 
+	menaceViewLayer.alpha = 0.0;
 }
 
 

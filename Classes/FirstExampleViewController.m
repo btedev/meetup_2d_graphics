@@ -50,8 +50,13 @@
 	imgView.image = image;
 }
 
+//This example is from the Erica Sadun book.  Load a current weather map image from weather.com
+//into the image view.  In a real-world app, would need error checking.  Long running requests
+//should be asynchronous.
 - (IBAction)loadFromWebPressed {
-	
+	NSURL *url = [NSURL URLWithString:@"http://image.weather.com/images/maps/current/curwx_600x405.jpg"];
+	UIImage *img = [UIImage imageWithData:[NSData dataWithContentsOfURL:url]];
+	imgView.image = img;
 }
 
 - (void)didReceiveMemoryWarning {

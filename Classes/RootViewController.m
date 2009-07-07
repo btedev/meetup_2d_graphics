@@ -24,6 +24,10 @@
 	[self.view addSubview:backgroundView];
 	[self.view sendSubviewToBack:backgroundView];
 	[backgroundView release];
+	
+	UIBarButtonItem *backButton = [[UIBarButtonItem alloc] initWithTitle:@"Menu" style:UIBarButtonItemStyleBordered target:nil action:nil];
+    self.navigationItem.backBarButtonItem = backButton;
+    [backButton release];
 }
 
 - (void)firstExampleButtonPressed {

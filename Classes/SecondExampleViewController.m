@@ -11,57 +11,78 @@
 
 @implementation SecondExampleViewController
 
-- (IBAction)segmentCtrlPressed {
-	/*
-	int idx = segmentCtrl.selectedSegmentIndex;
-	switch (idx) {
-		case 0:
-			[self drawRabbit];
-			break;
-		case 1:
-			[self drawBackground];
-			break;
-		case 2:
-			[self outfitMammalForEnvironment];
-			break;
-		default:
-			break;
-	} 
-	 */
-}
 
-
-
-/*
- // The designated initializer.  Override if you create the controller programmatically and want to perform customization that is not appropriate for viewDidLoad.
-- (id)initWithNibName:(NSString *)nibNameOrNil bundle:(NSBundle *)nibBundleOrNil {
-    if (self = [super initWithNibName:nibNameOrNil bundle:nibBundleOrNil]) {
-        // Custom initialization
-    }
-    return self;
-}
-*/
-
-/*
-// Implement loadView to create a view hierarchy programmatically, without using a nib.
-- (void)loadView {
-}
-*/
-
-/*
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
 - (void)viewDidLoad {
     [super viewDidLoad];
-}
-*/
 
-/*
-// Override to allow orientations other than the default portrait orientation.
-- (BOOL)shouldAutorotateToInterfaceOrientation:(UIInterfaceOrientation)interfaceOrientation {
-    // Return YES for supported orientations
-    return (interfaceOrientation == UIInterfaceOrientationPortrait);
+	//create array of content mode strings with indices matching the UIViewContentMode enum
+	/*
+	 typedef enum {
+	 UIViewContentModeScaleToFill,
+	 UIViewContentModeScaleAspectFit,      // contents scaled to fit with fixed aspect. remainder is transparent
+	 UIViewContentModeScaleAspectFill,     // contents scaled to fill with fixed aspect. some portion of content may be clipped.
+	 UIViewContentModeRedraw,              // redraw on bounds change (calls -setNeedsDisplay)
+	 UIViewContentModeCenter,              // contents remain same size. positioned adjusted.
+	 UIViewContentModeTop,
+	 UIViewContentModeBottom,
+	 UIViewContentModeLeft,
+	 UIViewContentModeRight,
+	 UIViewContentModeTopLeft,
+	 UIViewContentModeTopRight,
+	 UIViewContentModeBottomLeft,
+	 UIViewContentModeBottomRight,
+	 } UIViewContentMode;
+	 */
+	
+	modes = [NSArray arrayWithObjects:@"Scale To Fill",
+										@"Scale Aspect Fit",
+										@"Scale Aspect Fill",
+										@"Redraw",
+										@"Center",
+										@"Top",
+										@"Bottom",
+										@"Left",
+										@"Right",
+										@"Top Left",
+										@"Top Right",
+										@"Bottom Left",
+										@"Bottom Right",nil];
+	[modes retain];
 }
-*/
+
+
+#pragma mark Table view methods
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+
+// Customize the number of rows in the table view.
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return [modes count];
+}
+
+
+// Customize the appearance of table view cells.
+- (UITableViewCell *)tableView:(UITableView *)tableView2 cellForRowAtIndexPath:(NSIndexPath *)indexPath {    
+    static NSString *CellIdentifier = @"ModeCell";
+    
+    UITableViewCell *cell = [tableView2 dequeueReusableCellWithIdentifier:CellIdentifier];
+    if (cell == nil) {
+        cell = [[[UITableViewCell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CellIdentifier] autorelease];
+	}
+	
+	NSString *desc = [modes objectAtIndex:indexPath.row];
+	cell.textLabel.text = desc;
+    return cell;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    imageView.contentMode = indexPath.row;
+}
+
 
 - (void)didReceiveMemoryWarning {
 	// Releases the view if it doesn't have a superview.
@@ -77,6 +98,7 @@
 
 
 - (void)dealloc {
+	[modes release];
     [super dealloc];
 }
 

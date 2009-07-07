@@ -11,8 +11,11 @@
 
 @interface FifthExampleViewController : UIViewController {
 	UIImageView *batImageView;
+	UIImageView *menaceViewLayer;
 }
 
-- (IBAction)batsButtonPressed;
+- (void)feastButtonPressed;
+- (void)animateBats;
+- (void)animateBatsHasFinished:(NSString *)animationID finished:(BOOL)finished context:(void *)context;
 
 @end

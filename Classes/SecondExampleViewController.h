@@ -9,12 +9,11 @@
 #import <UIKit/UIKit.h>
 
 
-@interface SecondExampleViewController : UIViewController {
-	IBOutlet UISegmentedControl *segmentCtrl;
+@interface SecondExampleViewController : UIViewController <UITableViewDelegate, UITableViewDataSource> {
+	IBOutlet UITableView *tableView;
+	IBOutlet UIImageView *imageView;
+	
+	NSArray *modes;
 }
-
-- (IBAction)segmentCtrlPressed;
-
-
 
 @end
