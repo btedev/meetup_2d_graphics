@@ -55,7 +55,7 @@
 }
 
 - (void)fifthExampleButtonPressed {
-	FifthExampleViewController *vc = [[FifthExampleViewController alloc] initWithNibName:@"FifthExampleView" bundle:nil];
+	FifthExampleViewController *vc = [[FifthExampleViewController alloc] init];
 	[self pushViewController:vc];
 	[vc release];
 }

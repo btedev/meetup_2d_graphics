@@ -20,11 +20,12 @@
 }
 */
 
-/*
 // Implement loadView to create a view hierarchy programmatically, without using a nib.
 - (void)loadView {
+	UIView *aview = [[UIView alloc] initWithFrame:CGRectMake(0, 0, 320, 460)];
+	self.view = aview;
+	[aview release];
 }
-*/
 
 
 // Implement viewDidLoad to do additional setup after loading the view, typically from a nib.
@@ -50,7 +51,7 @@
 	[self.view addSubview:rabbitViewLayer];
 	[rabbitViewLayer release];
 	
-	//Add "meanace" ImageView with fangs and rabbit red eye over the rabbit image but set alpha at 0
+	//Add "meanace" ImageView with fangs and red eye over the rabbit image but set alpha at 0
 	//for now.  Pressing Feast button will cause animation to set alpha to 1.0.
 	menaceViewLayer = [[UIImageView alloc] initWithFrame:CGRectMake(75,210,269,246)];
 	menaceViewLayer.contentMode = UIViewContentModeScaleAspectFit;
